@@ -1,0 +1,79 @@
+{% extends 'ransomware_detector/Home.html' %}
+
+{% block content %}
+<h1>Dashboard - Ransomware Logs</h1>
+{% load static %}
+    <link rel="stylesheet" href="{% static 'ransomware_detector/style.css' %}">
+
+<h2>Threat Monitoring Status</h2>
+<p id="threat-status">Threat Monitoring Status: Idle</p>
+
+<h2>Ransomware Logs</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Timestamp</th>
+            <th>Filename</th>
+            <th>Action Taken</th>
+        </tr>
+    </thead>
+    <tbody id="logs-table-body">
+        <!-- Logs will be dynamically inserted here -->
+    </tbody>
+</table>
+
+<script>
+    function fetchThreatStatus() {
+        fetch("{% url 'get_monitoring_status' %}")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("threat-status").textContent = "Threat Monitoring Status: " + data.status;
+
+                if (data.status.includes("Threat detected") || data.status.includes("Threat Detected") || data.status.includes("quarantined")) {
+                    showToast("⚠️ Threat detected and quarantined!");
+                }
+            })
+            .catch(error => console.error('Error fetching threat status:', error));
+    }
+
+    function updateLogsTable() {
+        fetch("{% url 'get_logs_json' %}")
+            .then(response => response.json())
+            .then(logs => {
+                const tableBody = document.getElementById("logs-table-body");
+                tableBody.innerHTML = "";
+                logs.forEach(log => {
+                    const row = `<tr>
+                        <td>${log.timestamp}</td>
+                        <td>${log.filename}</td>
+                        <td>${log.action_taken}</td>
+                    </tr>`;
+                    tableBody.innerHTML += row;
+                });
+            })
+            .catch(error => console.error("Error fetching logs:", error));
+    }
+
+    function showToast(message) {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.textContent = message;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add("show");
+        }, 100); // Delay to trigger transition
+
+        setTimeout(() => {
+            toast.classList.remove("show");
+            setTimeout(() => document.body.removeChild(toast), 500);
+        }, 4000); // Auto remove after 4 seconds
+    }
+
+    fetchThreatStatus();
+    updateLogsTable();
+    setInterval(fetchThreatStatus, 5000);
+    setInterval(updateLogsTable, 5000);
+</script>
+
+{% endblock %}

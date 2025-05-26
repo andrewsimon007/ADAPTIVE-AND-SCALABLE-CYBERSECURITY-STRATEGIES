@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #ffffff;
+    text-align: center;
+}
+
+header {
+    background: #1f2833;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #66fcf1;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #66fcf1;
+}
+
+.hero {
+    padding: 80px 20px;
+    background: #1f2833;
+}
+
+.hero h1 {
+    font-size: 36px;
+    color: #66fcf1;
+}
+
+.hero p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.hero button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #66fcf1;
+    border: none;
+    color: #0b0c10;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero button:hover {
+    background: #45a29e;
+}
+
+.features {
+    padding: 50px;
+    background: #0b0c10;
+}
+
+.features h2 {
+    font-size: 28px;
+    color: #66fcf1;
+}
+
+.feature-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #1f2833;
+    border-radius: 8px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.monitoring {
+    padding: 50px;
+    background: #1f2833;
+}
+
+.monitoring h2 {
+    color: #66fcf1;
+}
+
+.monitoring-box {
+    background: #0b0c10;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid #66fcf1;
+    font-size: 18px;
+}
+button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+
+.form-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-container button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.form-container button:hover {
+    background-color: #2980b9;
+}
+
+.form-container .error {
+    color: red;
+    margin-top: 10px;
+}
+
+.form-container p {
+    margin-top: 10px;
+}
+
+.form-container a {
+    color: #3498db;
+    text-decoration: none;
+}
+.form-container a:hover {
+    text-decoration: underline;
+}
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #ff4444;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.form-container {
+    background-color: #f9f9f9;
+    color: #000;
+}
+
+.form-container input,
+.form-container label {
+    color: #000;
+}
+

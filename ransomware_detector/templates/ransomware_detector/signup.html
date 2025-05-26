@@ -1,0 +1,13 @@
+{% extends 'ransomware_detector/Home.html' %}
+
+{% block content %}
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+    </div>
+{% endblock %}

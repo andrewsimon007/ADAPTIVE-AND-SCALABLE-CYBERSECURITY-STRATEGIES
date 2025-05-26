@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ASAP Security - Home{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ransomware_detector/style.css' %}">
+    <script src="{% static 'ransomware_detector/script.js' %}"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">ASAP_Security</div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'dashboard' %}" target="_blank">Dashboard</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {% block content %}
+    <!-- Default content shown on the homepage -->
+
+    <section class="hero">
+        <h1>Adaptive & Scalable Cybersecurity</h1>
+        <p>Leveraging AI for Proactive Threat Mitigation and Resilience.</p>
+        
+    </section>
+
+    <section id="features" class="features">
+        <h2>Key Features</h2>
+        <div class="feature-box">
+            <h3>🔍 Real-Time Threat Detection</h3>
+            <p>Detect and analyze ransomware attacks before they cause damage.</p>
+        </div>
+        <div class="feature-box">
+            <h3>⚡ AI-Powered Response</h3>
+            <p>Automated mitigation strategies for proactive cybersecurity.</p>
+        </div>
+        <div class="feature-box">
+            <h3>🌍 Scalable & Adaptive</h3>
+            <p>Designed to evolve with emerging cyber threats.</p>
+        </div>
+    </section>
+
+    <section class="monitoring">
+        <h2>Live Threat Monitoring</h2>
+        <div class="monitoring-box" id="monitor">
+            <p>System Status: <span id="status">Idle</span></p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About ASAP Security</h2>
+        <p>ASAP Security provides AI-driven solutions to detect, prevent, and respond to cybersecurity threats efficiently.</p>
+        <p>Our cutting-edge technology ensures real-time protection against ransomware attacks, keeping your systems safe.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: support@asapsecurity.com</p>
+        <p>Phone: +1 234 567 8900</p>
+        <p>Address: 123 Cybersecurity Lane, Secure City, SC 56789</p>
+    </section>
+    {% endblock %}
+</body>
+</html>
